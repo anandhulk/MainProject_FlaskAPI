@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Summary{% endblock %}
+
+{% block content %}
+<h1 class="title">Main Project</h1>
+<div class="navbar">
+  <a href="/">ABOUT</a>
+  <a href="summary">SUMMARIZER</a>
+  <a class="active" href="mcq">MCQ GENERATION</a>
+</div>		
+<div class="half-vertical">
+	<div class="left">
+		<textarea rows="10" cols="50" placeholder="Enter your paragraph here..." class="input-area"></textarea>
+        <button id="submit" class="submit-button" >Generate</button>
+	</div>
+	<div class="right"></div>
+</div>
+
+{% endblock %}
+
+

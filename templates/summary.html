@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% block title %}Summary{% endblock %}
+
+{% block content %}
+<h1 class="title">Main Project</h1>
+    <div class="navbar">
+        <a href="/">ABOUT</a>
+        <a class="active" href="summary">SUMMARIZER</a>
+        <a href="mcq">MCQ GENERATION</a>
+    </div>
+<div class="container">
+  <div class="half-vertical">
+    <div class="left">
+      <textarea class="input-area" placeholder="input text..." id="input-area"></textarea>
+
+      <label for="scale">Weightage:</label>
+      <input type="range" id="scale" name="scale" min="0" max="10" step="1">
+
+      <button id="submit" class="submit-button" >Submit</button>
+    </div>
+    
+    <div class="right">
+      <div id="spinner">
+        <div class="spinner-icon"></div>
+        <div class="spinner-timer"></div>
+      </div>
+      
+      <p id="summary-right"></p>
+    </div>
+  </div>
+
+</div>
+<script type = "text/javascript" src = "{{ url_for('static', filename = 'summary.js') }}" ></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock %}

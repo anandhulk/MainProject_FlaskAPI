@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}MCQ{% endblock %}
+
+{% block content %}
+<h1 class="title">Main Project</h1>
+<div class="navbar">
+  <a href="/">ABOUT</a>
+  <a href="summary">SUMMARIZER</a>
+  <a class="active" href="mcq">MCQ GENERATION</a>
+</div>
+<div class="mcq-container">
+  <div class="mcq-question">
+    <h2>What is the capital of France?</h2>
+  </div>
+  <div class="mcq-options">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <span>London</span>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <span>Paris</span>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <span>Milan</span>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="d">
+      <span>Moscow</span>
+    </label>
+  </div>
+  <div class="mcq-submit">
+    <button type="submit">Submit</button>
+  </div>
+</div>
+
+{% endblock %}
