@@ -3,6 +3,8 @@ from transformers import pipeline, set_seed
 import pandas as pd
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 import torch
+from keyphraseExtraction import extractor
+from mcqGenrator import generate_option,generate_mcq
 
 
 pipe = pipeline('summarization', model = "pegasus" )
@@ -21,12 +23,28 @@ def summary():
 def mcq():
    return render_template('sample.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict-summary', methods=['POST'])
 def process_data():
     input_data = request.get_json()
     res=pipe(input_data['text'])
     output_data = {'message': res[0]['summary_text']}
     return jsonify(output_data)
+
+@app.route('/predict-mcq',methods=['POST'])
+def generate():
+   input_data = request.get_json()
+   response=generate_mcq(input_data['text'])
+   output_data= {'keyphrases':response}
+   return jsonify(output_data)
+
+@app.route('/predict-summary-mcq',methods=['POST'])
+def generateMcq():
+   input_data = request.get_json()
+   res=pipe(input_data['text'])
+   summary_text=res[0]['summary_text']
+   response=generate_mcq(summary_text)
+   output_data= {'keyphrases':response}
+   return jsonify(output_data)
 
 if __name__ == '__main__':
    app.run(debug = True)

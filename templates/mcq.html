@@ -4,11 +4,13 @@
 
 {% block content %}
 <h1 class="title">Main Project</h1>
+
 <div class="navbar">
-  <a href="/">ABOUT</a>
+  <a class="active" href="/">ABOUT</a>
   <a href="summary">SUMMARIZER</a>
-  <a class="active" href="mcq">MCQ GENERATION</a>
+  <a href="mcq">MCQ GENERATION</a>
 </div>
+
 <div class="mcq-container">
   <div class="mcq-question">
     <h2>What is the capital of France?</h2>
@@ -37,3 +39,47 @@
 </div>
 
 {% endblock %}
+
+.mcq-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #303030;
+}
+
+.mcq-question {
+  margin-bottom: 20px;
+}
+
+.mcq-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.mcq-options label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mcq-options input[type="radio"] {
+  margin-right: 10px;
+}
+
+.mcq-submit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mcq-submit button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mcq-submit button:hover {
+  background-color: #0069d9;
+}

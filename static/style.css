@@ -1,10 +1,10 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-    color: white;
-    overflow-x: hidden;
-  }
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  color: white;
+  overflow-x: hidden;
+}
   
   
 .navbar {
@@ -12,19 +12,21 @@ body {
     overflow: hidden;
   }
 
-  /* Style for the links in the navbar */
 .navbar a {
     float: left;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
-
+  }
+  
   /* Style for the active link in the navbar */
 .active {
     background-color: #4CAF50;
-}
+  }
+
+  /* Style for the links in the navbar */
+ 
 
   /* Style for the title */
 .title {
@@ -128,63 +130,32 @@ body {
   border-radius: 50%;
   border: 5px solid #ccc;
   border-top-color: #333;
-  position: relative;
-}
-
-#spinner .spinner-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid #333;
-  border-top-color: transparent;
   animation: spin 1s ease-in-out infinite;
 }
 
-#spinner .spinner-timer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
+#spinner-mcq {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid #ccc;
+  border-top-color: #333;
+  animation: spin 1s ease-in-out infinite;
 }
 
+/* Add an animation for the spinner element */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes timer {
-  from {
-    content: "5";
-  }
-  to {
-    content: "0";
-  }
-}
-
-#spinner.active {
-  display: block;
-}
-
-#spinner.active .spinner-timer {
-  display: block;
-  animation: timer 5s linear forwards;
-}
-
-
 .mcq-container {
-  width: 400px;
+  width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #181616;
+  background-color: #303030;
 }
 
 .mcq-question {
@@ -203,7 +174,24 @@ body {
 }
 
 .mcq-options input[type="radio"] {
+  display: none;
+}
+
+.option-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
   margin-right: 10px;
+}
+
+.mcq-options label:hover .option-box {
+  border-color: #4cc547;
+}
+
+.mcq-options input[type="radio"]:checked + .option-box {
+  background-color: #03fd03;
+  border-color: #4cc547;
 }
 
 .mcq-submit {
@@ -213,7 +201,7 @@ body {
 
 .mcq-submit button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #2c7c24;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -221,8 +209,9 @@ body {
 }
 
 .mcq-submit button:hover {
-  background-color: #0069d9;
+  background-color: #4cc547;
 }
+
 
 .half-vertical {
   display: flex;

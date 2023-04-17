@@ -11,12 +11,62 @@
 </div>		
 <div class="half-vertical">
 	<div class="left">
-		<textarea rows="10" cols="50" placeholder="Enter your paragraph here..." class="input-area"></textarea>
-        <button id="submit" class="submit-button" >Generate</button>
+		<textarea rows="10" cols="50" placeholder="Enter your paragraph here..." class="input-area" id="input-mcq"></textarea>
+
+    <label for="option1">
+      <input type="radio" name="options" value="option1" checked>
+      Default
+    </label>
+    <label for="option2">
+      <input type="radio" id="summaryAndMcq" name="options" value="option2">
+      Very Important
+    </label>
+
+        <button id="submit-mcq" class="submit-button" >Generate</button>
 	</div>
-	<div class="right"></div>
-</div>
-
+	<div class="right">
+    <div class="mcq-container">
+      <div id="spinner-mcq">
+        <div class="spinner-icon"></div>
+        <div class="spinner-timer"></div>
+      </div>
+      <div class="mcq-question">
+        <h2 id="question" ></h2>
+      </div>
+      <div class="mcq-options">
+        <label>
+          <input type="radio" name="answer" value="a" >
+          <div class="option-box" id="option-radio1"></div>
+          <span id="option1"></span>
+        </label>
+        <label>
+          <input type="radio" name="answer" value="b">
+          <div class="option-box" id="option-radio2"></div>
+          <span id="option2"></span>
+        </label>
+        <label>
+          <input type="radio" name="answer" value="c">
+          <div class="option-box" id="option-radio3"></div>
+          <span id="option3"></span>
+        </label>
+        <label>
+          <input type="radio" name="answer" value="d">
+          <div class="option-box" id="option-radio4"></div>
+          <span id="option4"></span>
+        </label>
+      </div>
+      <div id="answer-div">
+        Answer: <span id="answer">a small word</span>
+      </div>      
+      <div class="mcq-submit">
+        <button type="submit" id="submit-answer">Submit</button>
+        <button type="submit" id="next">Next</button>
+      </div>
+    </div>
+    
+    
+  </div>
+  <script type = "text/javascript" src = "{{ url_for('static', filename = 'mcq.js') }}" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 {% endblock %}
-
 
